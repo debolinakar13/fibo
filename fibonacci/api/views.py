@@ -28,7 +28,6 @@ class Fibonacci(generics.RetrieveAPIView):
         status = True
 
         if request.query_params.get('number'):
-            import pdb;pdb.set_trace()
             number = request.query_params.get('number')
             try:
                 number = int(number)

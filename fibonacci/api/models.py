@@ -7,4 +7,3 @@ class Fibo(models.Model):
 
     number = models.IntegerField(null=True)
     result = models.TextField(null=True)
-    #time_taken = models.IntegerField(null=True)
