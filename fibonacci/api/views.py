@@ -11,6 +11,7 @@ from django.http import JsonResponse
 from .models import Fibo
 
 def fibonacci_calculation(number):
+    
     a, b = 0, 1
     for i in xrange(1, number+1):
         a, b = b, a+b
@@ -22,6 +23,7 @@ class Fibonacci(generics.RetrieveAPIView):
     renderer_classes = (TemplateHTMLRenderer,)
 
     def get(self, request):
+        
         number = 0
         result = 0
         time_taken = 0

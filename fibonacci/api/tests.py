@@ -6,10 +6,14 @@ from django.test import TestCase
 
 print HttpRequest.get_host()
 
+#change the url according to the host and port number
 url = "http://127.0.0.1:8000/api/"
+
+#define your own testcases here
 
 class FunctionTest(unittest.TestCase):
     def test_get_first_element(self):
+
         """Get first element of fibonacci Array"""
         myurl = url + "?number=1"
         req = requests.get(myurl)
@@ -17,6 +21,7 @@ class FunctionTest(unittest.TestCase):
         self.assertEqual(req.status_code, 200)
 
     def test_get_tenth_number(self):
+
         """Get tenth element of fibonacci Array"""
         myurl = url + "?number=10"
         req = requests.get(myurl)
@@ -26,6 +31,7 @@ class FunctionTest(unittest.TestCase):
 class NegativeTest(unittest.TestCase):
     
     def test_zero(self):
+
         """test the zero integer"""
         myurl = url + "?number=0"
         req = requests.get(myurl)
@@ -33,6 +39,7 @@ class NegativeTest(unittest.TestCase):
         self.assertTrue("zero is not allowed" in req.content)
 
     def test_negative(self):
+
         """test the negative integer"""
         myurl = url + "?number=-1"
         req = requests.get(myurl)
@@ -40,6 +47,7 @@ class NegativeTest(unittest.TestCase):
         self.assertTrue("negative integer is not allowed" in req.content)
 
     def test_string(self):
+
         """test the negative string"""
         myurl = url + "?number=string"
         req = requests.get(myurl)
@@ -55,6 +63,3 @@ class NegativeTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-        
-
-
